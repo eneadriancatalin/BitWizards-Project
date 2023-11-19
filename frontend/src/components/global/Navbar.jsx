@@ -1,53 +1,23 @@
 import React from "react";
-import { ReactComponent as Logo } from "../../assets/logo.svg";
-import { AcademicCapIcon, ListBulletIcon } from "@heroicons/react/24/outline";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import { faMessage, faBell } from "@fortawesome/free-regular-svg-icons";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   return (
-    <header className="w-[15%] h-screen flex flex-none border-r-[1px] border-[#2e2e2e] text-[#D4D4D4] flex-col space-y-10 py-10 px-6 bg-[#1A1A1A]">
-      <div className="">
-        <Logo className="w-[8rem]" />
+    <div className="border-[#ECECEC] flex items-center space-x-7 py-6 mb-6 justify-end px-6">
+      <FontAwesomeIcon icon={faMessage} className="text-[#90949b] h-5" />
+      <FontAwesomeIcon icon={faBell} className="text-[#90949b] h-5" />
+      <div className="flex items-center space-x-2">
+        <img
+          src="https://avatars.githubusercontent.com/u/71841822?v=4"
+          alt=""
+          className="rounded-full h-7 aspect-square"
+        />
+        <p className="font-semibold tracking-tight">Ene Adrian</p>
+        <FontAwesomeIcon icon={faAngleDown} className="text-[#90949b] h-3" />
       </div>
-      <div className="space-y-12">
-        <Category nume="Menu">
-          <Subcategory nume="Discover" />
-          <Subcategory nume="Tranding" />
-          <Subcategory nume="Category" />
-        </Category>
-        <Category nume="Menu">
-          <FontAwesomeIcon icon={faCoffee} />
-          <Subcategory nume="Recent" />
-          <Subcategory nume="Playlist" />
-          <Subcategory nume="Likes" />
-          <Subcategory nume="Downloads" />
-        </Category>
-      </div>
-    </header>
-  );
-};
-
-const Category = (props) => {
-  return (
-    <div className="space-y-8">
-      <p className="uppercase text-sm tracking-tight text-[#888888]">
-        {props.nume}
-      </p>
-      {props.children && (
-        <ul className="space-y-[1.6rem] font-medium ">{props.children}</ul>
-      )}
-      <div className="w-full h-0.5 bg-[#2e2e2e]"></div>
     </div>
-  );
-};
-
-const Subcategory = (props) => {
-  return (
-    <li className="flex space-x-3">
-      <ListBulletIcon className="w-6 aspect-square" />
-      <p>{props.nume}</p>
-    </li>
   );
 };
 
