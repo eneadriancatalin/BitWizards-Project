@@ -8,6 +8,7 @@ import {
   faClone,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Statistics from "./Statistics";
 
 const Blocks = (props) => {
   const detailsRef = useRef(null);
@@ -69,36 +70,18 @@ const Blocks = (props) => {
             : "justify-end")
         }
       >
-        {(props.tag === "-1" || props.tag === "1") && (
-          <div className={"flex space-x-3 h-full items-center"}>
-            <div className="flex items-center space-x-2">
-              <FontAwesomeIcon icon={faRankingStar} />
-              <p>
-                {props.avg ? (
-                  <>
-                    <span className="font-medium">{props.avg}%</span>
-                    {" scor mediu"}
-                  </>
-                ) : (
-                  "-"
-                )}
-              </p>
-            </div>
-            <div className="w-0.5 bg-black h-4"></div>
-            <p>
-              {" "}
-              {props.rezultate ? (
-                <>
-                  <span className="font-medium">{props.rezultate}</span>
-                  {" rezultate"}
-                </>
-              ) : (
-                "-"
-              )}
-            </p>
-          </div>
-        )}
-        <Tags nume={props.categorie ? props.categorie : "necatalogat"} />
+        <Statistics
+          tag={props.tag}
+          avg={props.avg}
+          rezultate={props.rezultate}
+        />
+        <div className="flex items-center space-x-2">
+          {props.categorie ? (
+            props.categorie.map((tag) => <Tags nume={tag} />)
+          ) : (
+            <Tags nume="necatalogat" />
+          )}
+        </div>
       </div>
     </div>
   );
