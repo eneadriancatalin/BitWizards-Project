@@ -10,9 +10,12 @@ function App() {
   return (
     <div className="App flex h-screen w-screen font-arimo bg-white">
       <Router>
+        {/* //! SIDEBARUL PAGINII */}
         <Sidebar2 />
         <div className="flex flex-col px-10 w-full">
+          {/* //! BARA DE NAVIGATII */}
           <Navbar />
+          {/* //! ROUTURILE PAGINILOR */}
           <Routes>
             <Route key="home" exact path="/" element={<Home />} />
             <Route key="tests" exact path="/tests" element={<Tests />} />

@@ -15,6 +15,9 @@ const Test = () => {
   let myArray = [];
   const { id } = useParams();
   const location = useLocation();
+  {
+    /* //! ARRAYUL CU CALEA CATRE PAGINA */
+  }
   const a = location.pathname.split("/").filter(Boolean);
   const testObject = data.tests.find((test) => test.id === id);
   myArray.push(
@@ -24,15 +27,21 @@ const Test = () => {
 
   return (
     <div>
+      {/* //! CALEA CATRE PAGINA */}
       <Breadcrumbs loc={myArray} />
+      {/* //! TITLUL PAGINII */}
       <Title titlu={testObject.nume} />
+      {/* //! DIVUL CU INFORMATII DESPRE TEST */}
       <div className="space-y-3 mt-7">
+        {/* //! STATUSUL TESTULUI */}
         <Infos nume="Status" tag={testObject.tag}>
           <Tags nume={testObject.tag} />
         </Infos>
+        {/* //! CAND A FOST CREAT */}
         <Infos nume="Creat la">
           <p>{timeConvert(testObject.data)}</p>
         </Infos>
+        {/* //! TAGURIILE TESTULUI */}
         <Infos
           nume={testObject.categorie?.length < 2 ? "Categorie" : "Categorii"}
         >
@@ -44,6 +53,7 @@ const Test = () => {
             )}
           </div>
         </Infos>
+        {/* //! STATISTICILE */}
         <Infos nume="Statistici" tag={testObject.tag}>
           <Statistics
             tag={testObject.tag}
@@ -66,6 +76,9 @@ const Test = () => {
 
 export default Test;
 
+{
+  /* //! COMPONENTA CU INFORMATII */
+}
 const Infos = (props) => {
   return (
     <ul className="flex items-center">
@@ -77,6 +90,9 @@ const Infos = (props) => {
   );
 };
 
+{
+  /* //! COMPONENTA CU SETARI */
+}
 const Setari = (props) => {
   return (
     <div className="w-full justify-center flex items-center">

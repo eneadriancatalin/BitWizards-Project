@@ -1,9 +1,10 @@
 import React from "react";
+import Title from "../components/global/blocks/Title";
 
 const Home = () => {
   return (
     <div>
-      <h1 className="font-semibold text-4xl tracking-tight">Acasă</h1>
+      <Title titlu="Acasă" />
       <img
         className="scale-150 translate-x-[20rem] translate-y-[15rem] hidden"
         src="https://cdn.dribbble.com/userupload/4243072/file/original-c8f726297af53d79bf98064c5637d0bc.jpg?resize=1024x768&vertical=center"

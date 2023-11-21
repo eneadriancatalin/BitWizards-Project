@@ -6,8 +6,11 @@ import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 const Navbar = () => {
   return (
     <div className="border-[#ECECEC] flex items-center space-x-7 py-6 mb-6 justify-end px-6">
+      {/* //! ICONITA CU MESAJ */}
       <FontAwesomeIcon icon={faMessage} className="text-[#90949b] h-5" />
+      {/* //! ICONITA CU CLOPOTEL */}
       <FontAwesomeIcon icon={faBell} className="text-[#90949b] h-5" />
+      {/* //! IMAGINEA SI NUMELE USERULUI */}
       <div className="flex items-center space-x-2">
         <img
           src="https://avatars.githubusercontent.com/u/71841822?v=4"

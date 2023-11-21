@@ -1,6 +1,21 @@
 import React from "react";
 
 const Tags = (props) => {
+  {
+    /* //! DETERMINAREA TAGULUI */
+  }
+  {
+    /*//! -1 - TESTUL ESTE INCHIS */
+  }
+  {
+    /* //! 0 - TESTUL ESTE INCA IN CONFIGURARE */
+  }
+  {
+    /*//! 1 - TESTUL ESTE ACTIV */
+  }
+  {
+    /*//! ALTCEVA - NUMELE CUSTOM AM TAGULUI */
+  }
   return (
     <div
       className={

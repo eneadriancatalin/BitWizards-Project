@@ -7,7 +7,9 @@ const Statistics = (props) => {
     <div>
       {(props.tag === "-1" || props.tag === "1") && (
         <div className={"flex space-x-3 h-full items-center"}>
+          {/* //! PARTEA CU SCORUL MEDIU */}
           <div className="flex items-center space-x-2">
+            {/* //! ICONITA CU RANK */}
             <FontAwesomeIcon icon={faRankingStar} />
             <p>
               {props.avg ? (
@@ -21,6 +23,7 @@ const Statistics = (props) => {
             </p>
           </div>
           <div className="w-0.5 bg-black h-4"></div>
+          {/* //! PARTEA CU NUMARUL DE REZULTATE */}
           <p>
             {" "}
             {props.rezultate ? (

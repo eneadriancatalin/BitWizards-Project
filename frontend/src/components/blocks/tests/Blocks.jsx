@@ -2,7 +2,6 @@ import React from "react";
 import Tags from "./Tags";
 import { useRef, useEffect } from "react";
 import {
-  faRankingStar,
   faEllipsis,
   faTrash,
   faClone,
@@ -13,6 +12,9 @@ import Statistics from "./Statistics";
 const Blocks = (props) => {
   const detailsRef = useRef(null);
 
+  {
+    /* //! VERIFICA CAND DAI CLICK IN AFARA BUTONULUI DE OPTIUNI SI IL INCHIDE */
+  }
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (detailsRef.current && !detailsRef.current.contains(event.target)) {
@@ -31,13 +33,14 @@ const Blocks = (props) => {
     <div className="p-6 bg-[#F8F8F8] min-h-max flex space-y-5 flex-col justify-between rounded-lg cursor-pointer">
       <div className="space-y-5">
         <div className="flex justify-between items-center">
+          {/* //! PARTEA DE DETALII CU STATUS SI CAND A FOST CREAT */}
           <div className="flex items-center space-x-5">
             <Tags nume={props.tag} />
             <p className="text-sm font-medium text-neutral-400 tracking-tight">
               CREAT LA {props.data}
             </p>
           </div>
-
+          {/* //! BUTONUL DE OPTIUNI PENTRU COPIERE/STERGERE */}
           <details ref={detailsRef} className="list-none relative">
             <summary className="list-none">
               <FontAwesomeIcon
@@ -57,11 +60,14 @@ const Blocks = (props) => {
             </ul>
           </details>
         </div>
+        {/* //! NUMELE TESTULUI */}
         <p className="font-semibold text-2xl">{props.nume}</p>
+        {/* //! DESCRIEREA TESTULUI */}
         <p className="line-clamp-2 text-neutral-500">
           {props.descriere ? props.descriere : "(fara descriere)"}
         </p>
       </div>
+      {/* //! STATISTICILE SI TAGURI */}
       <div
         className={
           "flex items-center " +
@@ -70,6 +76,7 @@ const Blocks = (props) => {
             : "justify-end")
         }
       >
+        {/* //! COMPONENTA PENTRU STATISTICI */}
         <Statistics
           tag={props.tag}
           avg={props.avg}
