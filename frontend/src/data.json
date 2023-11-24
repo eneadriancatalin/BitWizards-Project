@@ -16,18 +16,56 @@
       "id": "c08809d4-fe05-4bb7-b9de-c463618498b1",
       "nume": "Test geografie",
       "tag": "0",
-      "data": 1700478287,
-      "categorie": ["test"],
+      "data": "1700478287",
+      "categorie": "test",
       "descriere": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "avg": 42.9,
-      "rezultate": 20
+      "rezultate": 20,
+      "settings": {
+        "setari": {
+          "nume": "Test geografie",
+          "categorie": "test",
+          "descriere": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        "intrebari": [
+          {
+            "titlu": "Titlul aici",
+            "raspunsuri": ["intrebare 1", "intrebare 2"],
+            "raspunsCorect": "a",
+            "puncte": 2,
+            "categorie": "numere rationale"
+          },
+          {
+            "titlu": "Titlul aici 2",
+            "raspunsuri": ["intrebare 3", "intrebare 4"],
+            "raspunsCorect": "a",
+            "puncte": 2,
+            "categorie": "fractii"
+          }
+        ],
+        "generari": {
+          "tip": 1
+        },
+        "acces": {
+          "tipAntiCopiere": 1
+        },
+        "paginaFinala": {
+          "mesajFinal": "Multumesc ca ai finalizat acest test",
+          "scorMaxim": "7",
+          "scorMinim": {
+            "valoare": "20",
+            "unitate": ["procente", "puncte"]
+          }
+        },
+        "timp": {}
+      }
     },
     {
       "id": "7c79dc27-bc33-4bbd-be75-3d55ae6c9e39",
       "nume": "Test matematica geometrie",
       "tag": "-1",
       "data": 1700478287,
-      "categorie": ["test11", "mate"],
+      "categorie": "mate",
       "descriere": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "avg": 75.3,
       "rezultate": 2

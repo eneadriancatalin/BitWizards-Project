@@ -16,87 +16,70 @@ import {
   faTasks,
   faAnglesLeft,
 } from "@fortawesome/free-solid-svg-icons";
-
-{
-  /* //! FUNCTIE DETERMINARE CULOARE MAI LIGHT */
-}
-const lightenColor = (color, opacity) => {
-  const hex = color.replace(/^#/, "");
-  return `rgba(${parseInt(hex.substring(0, 2), 16)}, ${parseInt(
-    hex.substring(2, 4),
-    16
-  )}, ${parseInt(hex.substring(4, 6), 16)}, ${opacity})`;
-};
+import { lightenColor } from "../../utils";
 
 const Sidebar2 = () => {
   const [navbar, setNavbar] = useState(true);
   return (
     <header
       className={
-        "duration-300 transition-all h-screen flex border-r-2 tracking-tight border-[#ECECEC] flex-none flex-col space-y-6 px-5 pt-6 bg-[#F8F8F8] " +
-        (navbar ? "w-[13%]" : "w-[7%]")
+        "duration-300 transition-all h-screen flex border-r-2 tracking-tight justify-between border-[#ECECEC] flex-none flex-col px-5 pt-6 bg-[#F8F8F8] " +
+        (navbar ? "w-[13%]" : "w-auto")
       }
     >
       {/* //! LOGOURI */}
 
-      <div className="flex items-center justify-between">
-        <NavLink exact="true" to="/">
-          <Logo
-            className={
-              "hover:cursor-pointer duration-300 h-[2rem] transition-all " +
-              (navbar ? " block opacity-100" : " hidden opacity-0")
-            }
-          />
-          <LogoV
-            className={
-              "hover:cursor-pointer h-[2rem] duration-300 transition-all " +
-              (navbar ? " hidden opacity-0" : "block opacity-100")
-            }
-          />
-        </NavLink>
-        <FontAwesomeIcon
-          onClick={() => setNavbar(!navbar)}
-          icon={faAnglesLeft}
-          className={
-            "text-[#131821] h-4 cursor-pointer p-2 duration-300 transition-all " +
-            (navbar ? "rotate-0" : "rotate-180")
-          }
-        />
-      </div>
-      {/* //! CATEGORII SIDEBAR */}
-      <div className="space-y-6 overflow-y-auto scrollbar-hide">
-        <Category nume="Menu" name_disabled="true" nav={navbar}>
-          <Subcategory nav={navbar} nume="Acasă" icon={faHome} catre="/" />
-          <Subcategory nav={navbar} nume="Studenți" icon={faUsers} />
-        </Category>
-        <Category nume="Tests" nav={navbar}>
-          <Subcategory nav={navbar} nume="Crează" icon={faFile} />
-          <Subcategory nav={navbar} nume="șabloane" icon={faChartBar} />
-          <Subcategory
-            nav={navbar}
-            nume="Gestionează"
-            icon={faTasks}
-            catre="/tests"
-          />
-          <Subcategory nav={navbar} nume="Analiză" icon={faChartBar} />
-        </Category>
-        <Category nume="Students" nav={navbar}>
-          <Subcategory nav={navbar} nume="performanțe" icon={faUsers} />
-          <Subcategory nav={navbar} nume="scoruri" icon={faUser} />
-          <Subcategory nav={navbar} nume="istoric" icon={faHistory} />
-        </Category>
-        <Category nume="Reports" nav={navbar}>
-          <Subcategory nav={navbar} nume="rapoarte" icon={faClipboardList} />
-          <Subcategory nav={navbar} nume="clase" icon={faChartPie} />
-          <Subcategory nav={navbar} nume="individuale" icon={faFileInvoice} />
-        </Category>
-        {/*         <div className="w-full h-0.5 bg-[#ECECEC]"></div>
+      <div className="space-y-6">
+        <div className="flex items-center justify-between">
+          <NavLink exact="true" to="/">
+            <Logo
+              className={
+                "hover:cursor-pointer duration-300 h-[2rem] transition-all " +
+                (navbar ? " block opacity-100" : " hidden opacity-0")
+              }
+            />
+            <LogoV
+              className={
+                "hover:cursor-pointer h-[2rem] duration-300 transition-all " +
+                (navbar ? " hidden opacity-0" : "block opacity-100")
+              }
+            />
+          </NavLink>
+        </div>
+        {/* //! CATEGORII SIDEBAR */}
+        <div className="space-y-6 overflow-y-auto scrollbar-hide">
+          <Category nume="Menu" name_disabled="true" nav={navbar}>
+            <Subcategory nav={navbar} nume="Acasă" icon={faHome} catre="/" />
+            <Subcategory nav={navbar} nume="Studenți" icon={faUsers} />
+          </Category>
+          <Category nume="Tests" name_disabled="true" nav={navbar}>
+            <Subcategory nav={navbar} nume="Crează" icon={faFile} />
+            <Subcategory nav={navbar} nume="șabloane" icon={faChartBar} />
+            <Subcategory
+              nav={navbar}
+              nume="Gestionează"
+              icon={faTasks}
+              catre="/manager"
+            />
+            <Subcategory nav={navbar} nume="Analiză" icon={faChartBar} />
+          </Category>
+          <Category nume="Students" name_disabled="true" nav={navbar}>
+            <Subcategory nav={navbar} nume="performanțe" icon={faUsers} />
+            <Subcategory nav={navbar} nume="scoruri" icon={faUser} />
+            <Subcategory nav={navbar} nume="istoric" icon={faHistory} />
+          </Category>
+          <Category nume="Reports" name_disabled="true" nav={navbar}>
+            <Subcategory nav={navbar} nume="rapoarte" icon={faClipboardList} />
+            <Subcategory nav={navbar} nume="clase" icon={faChartPie} />
+            <Subcategory nav={navbar} nume="individuale" icon={faFileInvoice} />
+          </Category>
+          {/*         <div className="w-full h-0.5 bg-[#ECECEC]"></div>
         <Category nume="Clase" nav={navbar}>
           <Classes nume="12A - Info" color="#4AD6FF" />
           <Classes nume="10B - Tic" color="#FA4AA4" />
           <Classes nume="9C - Info" color="#4AD6FF" />
         </Category> */}
-        {/*
+          {/*
         <div className="w-full h-0.5 bg-[#ECECEC]"></div>
         <CategoryTag nume="Clase">
           <ClassesTag nume="12A - Info" color="#4AD6FF" />
@@ -104,6 +87,19 @@ const Sidebar2 = () => {
           <ClassesTag nume="9C - Info" color="#4AD6FF" />
         </CategoryTag>
          */}
+        </div>
+      </div>
+
+      {/* //! BUTON JOS */}
+      <div onClick={() => setNavbar(!navbar)} className="mb-3">
+        <Category nume="Reports" name_disabled="true" nav={navbar}>
+          <Subcategory
+            nav={navbar}
+            nume="ascunde"
+            icon={faAnglesLeft}
+            hide_icon="true"
+          />
+        </Category>
       </div>
     </header>
   );
@@ -138,24 +134,24 @@ const Subcategory = (props) => {
   return (
     <div>
       <NavLink exact="true" to={props.catre}>
-        <li className="group hover:cursor-pointer flex space-x-3 items-center">
+        <li className="group hover:cursor-pointer relative flex space-x-3 items-center">
           {/* Use the icon variable as the value for the icon prop */}
           <div className="min-w-[1.3rem]">
             <FontAwesomeIcon
               icon={props.icon}
-              className="h-4 text-[#BEBDBF] group-hover:text-[#131821]"
+              className={
+                "h-4 text-[#BEBDBF] duration-300 transition-all group-hover:text-[#131821] " +
+                (props.hide_icon === "true" ? "rotate-0" : "rotate-180")
+              }
             />
           </div>
           <p
             className={
-              "font-light capitalize w-full overflow-auto group-hover:font-semibold duration-300 transition-all text-[#606165] group-hover:text-[#131821] "
+              "font-light capitalize w-full overflow-auto group-hover:font-semibold text-[#606165] duration-300 transition-all top-0 left-5 absolute group-hover:text-[#131821] " +
+              (props.nav ? " opacity-100" : " opacity-0")
             }
           >
-            {props.nav
-              ? props.nume
-              : firstWord.length <= 4
-                ? firstWord
-                : firstWord + "."}
+            {props.nume}
           </p>
         </li>
       </NavLink>

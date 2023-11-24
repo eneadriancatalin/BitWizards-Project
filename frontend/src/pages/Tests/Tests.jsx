@@ -5,19 +5,12 @@ import { Link } from "react-router-dom";
 import Breadcrumbs from "../../components/global/Breadcrumbs";
 import { useLocation } from "react-router-dom";
 import Title from "../../components/global/blocks/Title";
-
-{
-  /* //! FUNCTIA DE A TRANSFORMA DATA TIP TIMESTAMP IN DATA NORMALA */
-}
-function timeConvert(timestamp) {
-  let a = new Date(timestamp * 1000);
-  return a.getFullYear() + "-" + a.getMonth() + "-" + a.getDay();
-}
+import { timeConvert } from "../../utils";
 
 const Tests = () => {
   const location = useLocation();
   return (
-    <>
+    <div className="px-10 py-6">
       {/* //! CALEA CATRE PAGINA */}
       <Breadcrumbs loc={["a", "b", "c"]} />
       <div className="space-y-10">
@@ -40,7 +33,7 @@ const Tests = () => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
