@@ -16,7 +16,7 @@
       "id": "c08809d4-fe05-4bb7-b9de-c463618498b1",
       "nume": "Test geografie",
       "tag": "0",
-      "data": "1700478287",
+      "data": "1700949888",
       "categorie": "test",
       "descriere": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "avg": 42.9,
@@ -24,7 +24,6 @@
       "settings": {
         "setari": {
           "nume": "Test geografie",
-          "categorie": "test",
           "descriere": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         },
         "intrebari": [
@@ -44,7 +43,7 @@
           }
         ],
         "generari": {
-          "tip": 1
+          "tip": -1
         },
         "acces": {
           "tipAntiCopiere": 1
@@ -57,7 +56,10 @@
             "unitate": ["procente", "puncte"]
           }
         },
-        "timp": {}
+        "timp": {
+          "tip": -1,
+          "timp": 179
+        }
       }
     },
     {
@@ -68,7 +70,32 @@
       "categorie": "mate",
       "descriere": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "avg": 75.3,
-      "rezultate": 2
+      "rezultate": 2,
+      "settings": {
+        "setari": {
+          "nume": "Test geografie",
+          "categorie": "mate",
+          "descriere": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        "generari": {
+          "tip": 1
+        },
+        "acces": {
+          "tipAntiCopiere": -1
+        },
+        "paginaFinala": {
+          "mesajFinal": "Multumesc ca ai finalizat acest test",
+          "scorMaxim": "7",
+          "scorMinim": {
+            "valoare": "20",
+            "unitate": ["procente", "puncte"]
+          }
+        },
+        "timp": {
+          "tip": 1,
+          "timp": 125
+        }
+      }
     },
     {
       "id": "7d0678fc-a5c3-4b30-b91b-6193f148cc5a",

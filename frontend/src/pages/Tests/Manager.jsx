@@ -7,15 +7,7 @@ import {
   Route,
   Link,
 } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGear,
-  faClipboardQuestion,
-  faShuffle,
-  faEye,
-  faFileLines,
-  faClock,
-} from "@fortawesome/free-solid-svg-icons";
+import HeroIcon from "../../components/global/HeroIcon";
 import data from "../../data.json";
 import Tags from "../../components/blocks/tests/Tags";
 import Setari from "./Settings/Setari";
@@ -24,11 +16,43 @@ import Generari from "./Settings/Generari";
 import Acces from "./Settings/Acces";
 import Finala from "./Settings/Finala";
 import Timp from "./Settings/Timp";
+import { removeDiacritics } from "../../utils";
+import Info from "./Settings/Info";
 const Manager = () => {
   let myArray = [];
   const { id } = useParams();
   const { name } = useParams();
   const location = useLocation();
+  const setari = [
+    {
+      setare: "Informatii",
+      icon: "information-circle",
+    },
+    {
+      setare: "Setari",
+      icon: "cog-6-tooth",
+    },
+    {
+      setare: "Intrebari",
+      icon: "clipboard-document-list",
+    },
+    {
+      setare: "Generări",
+      icon: "arrow-path-rounded-square",
+    },
+    {
+      setare: "Acces",
+      icon: "eye",
+    },
+    {
+      setare: "Pagina finala",
+      icon: "clipboard",
+    },
+    {
+      setare: "Setari timp",
+      icon: "clock",
+    },
+  ];
   {
     /* //! ARRAYUL CU CALEA CATRE PAGINA */
   }
@@ -41,38 +65,41 @@ const Manager = () => {
 
   return (
     <div className="flex h-full">
-      <div className="duration-300 transition-all space-y-7 h-screen flex border-r-2 tracking-tight border-[#ECECEC] flex-none flex-col px-5 min-w-[17rem] pt-6 bg-[#F8F8F8] ">
-        <div className="space-y-2">
+      <div className="duration-300 space-y-6 transition-all h-screen flex border-r-2 tracking-tight border-[#F6F8FA] flex-none flex-col pt-6 bg-white ">
+        <div className="space-y-3 px-5">
           <Tags nume={testObject.tag} />
-          <p className="font-medium text-2xl">{testObject.nume}</p>
+          <p className="font-medium text-[#111315] text-2xl">
+            {testObject.nume}
+          </p>
         </div>
         <div className="">
-          <Link to={`/manager/${id}/setari`}>
-            <Settings setare="Settings" icon={faGear} active="true" />
-          </Link>
-          <Link to={`/manager/${id}/intrebari`}>
-            <Settings setare="Intrebari" icon={faClipboardQuestion} />
-          </Link>
-          <Link to={`/manager/${id}/generari`}>
-            <Settings setare="Generări" icon={faShuffle} />
-          </Link>
-          <Link to={`/manager/${id}/acces`}>
-            <Settings setare="Acces" icon={faEye} />
-          </Link>{" "}
-          <Link to={`/manager/${id}/finala`}>
-            <Settings setare="Pagina finala" icon={faFileLines} />
-          </Link>
-          <Link to={`/manager/${id}/timp`}>
-            <Settings setare="Setari timp" icon={faClock} />
-          </Link>
+          {setari.map((setare, idx) => (
+            <Link
+              to={`/manager/${id}/${removeDiacritics(
+                setare.setare.toLocaleLowerCase()
+              )}`}
+            >
+              <Settings
+                setare={setare.setare}
+                icon={setare.icon}
+                active={
+                  a[a.length - 1].replace("%20", " ") ===
+                  removeDiacritics(setare.setare.toLocaleLowerCase())
+                    ? true
+                    : false
+                }
+              />
+            </Link>
+          ))}
         </div>
       </div>
+      {name === "informatii" && <Info object={testObject} />}
       {name === "setari" && <Setari />}
       {name === "intrebari" && <Intrebari />}
       {name === "generari" && <Generari />}
       {name === "acces" && <Acces />}
-      {name === "finala" && <Finala />}
-      {name === "timp" && <Timp />}
+      {name === "pagina finala" && <Finala />}
+      {name === "setari timp" && <Timp />}
     </div>
   );
 };
@@ -86,20 +113,33 @@ const Settings = (props) => {
   return (
     <div
       className={
-        "flex items-center space-x-5 rounded-lg py-4 px-4 text-xl group cursor-pointer hover:bg-neutral-200/50" +
-        (props.active === "true" ? " bg-neutral-200/50" : "")
+        "w-full px-8 flex relative" + (props.active ? " bg-[#EEF0F2]" : " ")
       }
     >
-      <FontAwesomeIcon
-        icon={props.icon}
-        className={
-          "text-lg group-hover:text-[#89E894]" +
-          (props.active === "true" ? " text-[#89E894]" : " text-neutral-500")
-        }
-      />
-      <p className="text-sm capitalize font-medium text-neutral-500">
-        {props.setare}
-      </p>
+      {props.active && (
+        <div className="top-0 left-0 h-full absolute w-[3px] bg-blue-600"></div>
+      )}
+      <li className="group hover:cursor-pointer py-4 relative flex space-x-3">
+        {/* Use the icon variable as the value for the icon prop */}
+        <div className="min-w-[1.3rem]">
+          <HeroIcon
+            icon={props.icon}
+            outline={props.active ? false : true}
+            className={
+              "h-6 aspect-square group-hover:text-[#111315] " +
+              (props.active ? " text-[#111315]" : " text-[#88898A]")
+            }
+          />
+        </div>
+        <p
+          className={
+            "capitalize w-full overflow-auto group-hover:text-[#111315] group-hover:font-semibold " +
+            (props.active ? " text-[#111315] font-semibold" : "text-[#606165]")
+          }
+        >
+          {props.setare}
+        </p>
+      </li>
     </div>
   );
 };

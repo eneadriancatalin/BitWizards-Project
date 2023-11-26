@@ -9,6 +9,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Statistics from "./Statistics";
 import { Link } from "react-router-dom";
+import HeroIcon from "../../global/HeroIcon";
 
 const Blocks = (props) => {
   const detailsRef = useRef(null);
@@ -31,14 +32,21 @@ const Blocks = (props) => {
   }, []);
 
   return (
-    <div className="p-6 bg-[#F8F8F8] min-h-max flex space-y-5 flex-col justify-between rounded-lg cursor-pointer">
+    <div className="p-6 bg-white ring-2 ring-[#F1F3F5] min-h-max flex space-y-5 flex-col justify-between rounded-lg cursor-pointer">
       <div className="space-y-5">
         <div className="flex justify-between items-center relative">
           {/* //! PARTEA DE DETALII CU STATUS SI CAND A FOST CREAT */}
           <div className="flex items-center space-x-5">
             <Tags nume={props.tag} />
-            <p className="text-sm font-medium text-neutral-400 tracking-tight">
-              CREAT LA {props.data}
+            <p className="flex text-base items-center space-x-1 text-[#858788] tracking-tight">
+              <HeroIcon
+                className="text-[#858788] h-5 aspect-square"
+                icon="calendar-days"
+                outline={false}
+              />
+              <p>
+                Creat: <span className="text-[#111315]">{props.data}</span>
+              </p>
             </p>
           </div>
           {/* //! BUTONUL DE OPTIUNI PENTRU COPIERE/STERGERE */}
@@ -65,13 +73,14 @@ const Blocks = (props) => {
           </details>
         </div>
         {/* //! NUMELE TESTULUI */}
-        <p className="font-semibold text-2xl">{props.nume}</p>
+        <p className="text-[#111315] text-3xl">{props.nume}</p>
         {/* //! DESCRIEREA TESTULUI */}
-        <p className="line-clamp-2 text-neutral-500">
+        <p className="line-clamp-2 text-lg leading-6 text-[#858788]">
           {props.descriere ? props.descriere : "(fara descriere)"}
         </p>
       </div>
       {/* //! STATISTICILE SI TAGURI */}
+      <div className="w-full bg-[#EEF0F2] h-px"></div>
       <div
         className={
           "flex items-center " +

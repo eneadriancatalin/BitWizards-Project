@@ -10,7 +10,7 @@ import { timeConvert } from "../../utils";
 const Tests = () => {
   const location = useLocation();
   return (
-    <div className="px-10 py-6">
+    <div className="px-10 py-6 bg-[#F1F3F5] h-full">
       {/* //! CALEA CATRE PAGINA */}
       <Breadcrumbs loc={["a", "b", "c"]} />
       <div className="space-y-10">
@@ -19,7 +19,7 @@ const Tests = () => {
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-7 h-full w-full">
           {/* //! GENERAREA BLOCKURILOR CU TESTE */}
           {data.tests.map((test) => (
-            <Link to={test.id} exact>
+            <Link to={`${test.id}/informatii`} exact>
               <Blocks
                 nume={test.nume}
                 tag={test.tag ? test.tag : "0"}

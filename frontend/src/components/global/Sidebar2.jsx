@@ -2,20 +2,7 @@ import React, { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { ReactComponent as LogoV } from "../../assets/logo2.svg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFile,
-  faHome,
-  faChartBar,
-  faChartPie,
-  faFileInvoice,
-  faClipboardList,
-  faHistory,
-  faUser,
-  faUsers,
-  faTasks,
-  faAnglesLeft,
-} from "@fortawesome/free-solid-svg-icons";
+import HeroIcon from "./HeroIcon";
 import { lightenColor } from "../../utils";
 
 const Sidebar2 = () => {
@@ -23,14 +10,14 @@ const Sidebar2 = () => {
   return (
     <header
       className={
-        "duration-300 transition-all h-screen flex border-r-2 tracking-tight justify-between border-[#ECECEC] flex-none flex-col px-5 pt-6 bg-[#F8F8F8] " +
+        "duration-300 transition-all space-y-10 h-screen flex border-r-2 tracking-tight justify-between border-[#F6F8FA] flex-none flex-col pt-6 bg-white " +
         (navbar ? "w-[13%]" : "w-auto")
       }
     >
       {/* //! LOGOURI */}
 
       <div className="space-y-6">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between  px-8">
           <NavLink exact="true" to="/">
             <Logo
               className={
@@ -47,31 +34,82 @@ const Sidebar2 = () => {
           </NavLink>
         </div>
         {/* //! CATEGORII SIDEBAR */}
-        <div className="space-y-6 overflow-y-auto scrollbar-hide">
+        <div className=" scrollbar-hide">
           <Category nume="Menu" name_disabled="true" nav={navbar}>
-            <Subcategory nav={navbar} nume="Acasă" icon={faHome} catre="/" />
-            <Subcategory nav={navbar} nume="Studenți" icon={faUsers} />
+            <Subcategory nav={navbar} nume="Acasă" icon="home" catre="/" />
+            <Subcategory
+              nav={navbar}
+              nume="Studenți"
+              icon="user"
+              catre="/studenti"
+            />
           </Category>
           <Category nume="Tests" name_disabled="true" nav={navbar}>
-            <Subcategory nav={navbar} nume="Crează" icon={faFile} />
-            <Subcategory nav={navbar} nume="șabloane" icon={faChartBar} />
+            <Subcategory
+              nav={navbar}
+              nume="Crează"
+              icon="newspaper"
+              catre="/creaza"
+            />
+            <Subcategory
+              nav={navbar}
+              nume="șabloane"
+              icon="chart-bar"
+              catre="/sabloane"
+            />
             <Subcategory
               nav={navbar}
               nume="Gestionează"
-              icon={faTasks}
+              icon="queue-list"
               catre="/manager"
             />
-            <Subcategory nav={navbar} nume="Analiză" icon={faChartBar} />
+            <Subcategory
+              nav={navbar}
+              nume="Analiză"
+              icon="chart-bar"
+              catre="/analiza"
+            />
           </Category>
           <Category nume="Students" name_disabled="true" nav={navbar}>
-            <Subcategory nav={navbar} nume="performanțe" icon={faUsers} />
-            <Subcategory nav={navbar} nume="scoruri" icon={faUser} />
-            <Subcategory nav={navbar} nume="istoric" icon={faHistory} />
+            <Subcategory
+              nav={navbar}
+              nume="performanțe"
+              icon="user"
+              catre="/performante"
+            />
+            <Subcategory
+              nav={navbar}
+              nume="scoruri"
+              icon="user-group"
+              catre="/scoruri"
+            />
+            <Subcategory
+              nav={navbar}
+              nume="istoric"
+              icon="backward"
+              catre="/istoric"
+            />
           </Category>
           <Category nume="Reports" name_disabled="true" nav={navbar}>
-            <Subcategory nav={navbar} nume="rapoarte" icon={faClipboardList} />
-            <Subcategory nav={navbar} nume="clase" icon={faChartPie} />
-            <Subcategory nav={navbar} nume="individuale" icon={faFileInvoice} />
+            <Subcategory
+              nav={navbar}
+              nume="rapoarte"
+              icon="clipboard-document-list"
+              catre="/rapoarte"
+            />
+            <Subcategory
+              nav={navbar}
+              nume="clase"
+              icon="chart-pie"
+              catre="/clase"
+            />
+            <Subcategory
+              nav={navbar}
+              nume="individuale"
+              icon="newspaper"
+              hideIcon="false"
+              catre="/individuale"
+            />
           </Category>
           {/*         <div className="w-full h-0.5 bg-[#ECECEC]"></div>
         <Category nume="Clase" nav={navbar}>
@@ -96,8 +134,8 @@ const Sidebar2 = () => {
           <Subcategory
             nav={navbar}
             nume="ascunde"
-            icon={faAnglesLeft}
-            hide_icon="true"
+            icon="arrow-left-circle"
+            hideIcon="true"
           />
         </Category>
       </div>
@@ -111,16 +149,14 @@ const Sidebar2 = () => {
 const Category = (props) => {
   return (
     <div>
-      <div className="w-full h-0.5 mb-6 bg-[#ECECEC]"></div>
+      <div className="w-full h-px bg-[#EEF0F2]"></div>
       <div className="space-y-4">
         {props.name_disabled != "true" && (
           <p className="text-sm font-medium text-[#B4B5B9] hover:cursor-default">
             {props.nume}
           </p>
         )}
-        {props.children && (
-          <ul className="space-y-3 font-medium ">{props.children}</ul>
-        )}
+        {props.children && <ul className="font-medium ">{props.children}</ul>}
       </div>
     </div>
   );
@@ -130,32 +166,44 @@ const Category = (props) => {
   /* //! COMPONENTA CHILD CATEGORII */
 }
 const Subcategory = (props) => {
+  const location = useLocation();
+  const active =
+    "/" + location.pathname.split("/")[1].toLowerCase() === props.catre;
   const firstWord = props.nume.split(" ")[0].slice(0, 5);
   return (
-    <div>
-      <NavLink exact="true" to={props.catre}>
-        <li className="group hover:cursor-pointer relative flex space-x-3 items-center">
+    <NavLink exact="true" to={props.catre}>
+      <div
+        className={
+          "w-full px-8 flex relative" + (active ? " bg-[#EEF0F2]" : " ")
+        }
+      >
+        {active && (
+          <div className="top-0 left-0 h-full absolute w-[3px] bg-blue-600"></div>
+        )}
+        <li className="group hover:cursor-pointer py-4 relative flex space-x-3">
           {/* Use the icon variable as the value for the icon prop */}
           <div className="min-w-[1.3rem]">
-            <FontAwesomeIcon
+            <HeroIcon
               icon={props.icon}
+              outline={active ? false : true}
               className={
-                "h-4 text-[#BEBDBF] duration-300 transition-all group-hover:text-[#131821] " +
-                (props.hide_icon === "true" ? "rotate-0" : "rotate-180")
+                " h-6 aspect-square group-hover:text-[#111315] " +
+                (props.hideIcon === "true" ? "rotate-0" : "rotate-0") +
+                (active ? " text-[#111315]" : " text-[#88898A]")
               }
             />
           </div>
           <p
             className={
-              "font-light capitalize w-full overflow-auto group-hover:font-semibold text-[#606165] duration-300 transition-all top-0 left-5 absolute group-hover:text-[#131821] " +
-              (props.nav ? " opacity-100" : " opacity-0")
+              "capitalize w-full overflow-auto group-hover:text-[#111315] group-hover:font-semibold " +
+              (active ? " text-[#111315] font-semibold" : "text-[#606165]")
             }
           >
             {props.nume}
           </p>
         </li>
-      </NavLink>
-    </div>
+      </div>
+    </NavLink>
   );
 };
 
