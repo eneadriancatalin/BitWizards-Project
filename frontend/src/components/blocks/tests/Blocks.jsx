@@ -8,6 +8,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Statistics from "./Statistics";
+import { Link } from "react-router-dom";
+import HeroIcon from "../../global/HeroIcon";
 
 const Blocks = (props) => {
   const detailsRef = useRef(null);
@@ -30,18 +32,28 @@ const Blocks = (props) => {
   }, []);
 
   return (
-    <div className="p-6 bg-[#F8F8F8] min-h-max flex space-y-5 flex-col justify-between rounded-lg cursor-pointer">
+    <div className="p-6 bg-white ring-2 ring-[#F1F3F5] min-h-max flex space-y-5 flex-col justify-between rounded-lg cursor-pointer">
       <div className="space-y-5">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center relative">
           {/* //! PARTEA DE DETALII CU STATUS SI CAND A FOST CREAT */}
           <div className="flex items-center space-x-5">
-            <Tags nume={props.tag} />
-            <p className="text-sm font-medium text-neutral-400 tracking-tight">
-              CREAT LA {props.data}
+            <Tags nume={props.status} />
+            <p className="flex text-base items-center space-x-1 text-[#858788] tracking-tight">
+              <HeroIcon
+                className="text-[#858788] h-5 aspect-square"
+                icon="calendar-days"
+                outline={false}
+              />
+              <p>
+                Creat: <span className="text-[#111315]">{props.data}</span>
+              </p>
             </p>
           </div>
           {/* //! BUTONUL DE OPTIUNI PENTRU COPIERE/STERGERE */}
-          <details ref={detailsRef} className="list-none relative">
+          <details
+            ref={detailsRef}
+            className="list-none absolute top-0 right-0"
+          >
             <summary className="list-none">
               <FontAwesomeIcon
                 icon={faEllipsis}
@@ -61,30 +73,31 @@ const Blocks = (props) => {
           </details>
         </div>
         {/* //! NUMELE TESTULUI */}
-        <p className="font-semibold text-2xl">{props.nume}</p>
+        <p className="text-[#111315] text-3xl">{props.nume}</p>
         {/* //! DESCRIEREA TESTULUI */}
-        <p className="line-clamp-2 text-neutral-500">
+        <p className="line-clamp-2 text-lg leading-6 text-[#858788]">
           {props.descriere ? props.descriere : "(fara descriere)"}
         </p>
       </div>
       {/* //! STATISTICILE SI TAGURI */}
+      <div className="w-full bg-[#EEF0F2] h-px"></div>
       <div
         className={
           "flex items-center " +
-          (props.tag === "-1" || props.tag === "1"
+          (props.status === "-1" || props.status === "1"
             ? "justify-between"
             : "justify-end")
         }
       >
         {/* //! COMPONENTA PENTRU STATISTICI */}
         <Statistics
-          tag={props.tag}
+          status={props.status}
           avg={props.avg}
           rezultate={props.rezultate}
         />
         <div className="flex items-center space-x-2">
           {props.categorie ? (
-            props.categorie.map((tag) => <Tags nume={tag} />)
+            <Tags nume={props.categorie} />
           ) : (
             <Tags nume="necatalogat" />
           )}

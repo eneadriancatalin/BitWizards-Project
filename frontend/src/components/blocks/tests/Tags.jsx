@@ -19,12 +19,14 @@ const Tags = (props) => {
   return (
     <div
       className={
-        "uppercase text-sm tracking-tight font-semibold px-3 py-1 max-w-max rounded-md " +
+        "capitalize tracking-tight  text-[#111315] font-semibold px-3 py-1 max-w-max rounded-md " +
         (props.nume === "0"
-          ? "bg-indigo-200 text-indigo-600"
+          ? "bg-[#D0C8F0]"
           : props.nume === "1"
-            ? "bg-emerald-200 text-emerald-600"
-            : " bg-neutral-200/50 text-neutral-500")
+            ? "bg-[#D7E5C1]"
+            : props.nume === "-1"
+              ? "bg-[#DEC7BB]"
+              : "bg-[#C3DBE9]")
       }
     >
       {props.nume === "0"

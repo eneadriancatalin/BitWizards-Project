@@ -36,6 +36,7 @@ module.exports = {
       roboto: ["Roboto", "sans-serif"],
       opensans: ["Open Sans", "sans-serif"],
       arimo: ["Arimo", "sans-serif"],
+      questial: ["Questrial", "sans-serif"],
     },
   },
   plugins: [require("@tailwindcss/line-clamp")],
