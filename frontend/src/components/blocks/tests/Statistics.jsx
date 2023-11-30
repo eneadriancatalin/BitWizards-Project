@@ -5,7 +5,7 @@ import HeroIcon from "../../global/HeroIcon";
 const Statistics = (props) => {
   return (
     <div>
-      {(props.tag === "-1" || props.tag === "1") && (
+      {(props.status === "-1" || props.status === "1") && (
         <div className={"flex space-x-3 h-full items-center"}>
           {/* //! PARTEA CU SCORUL MEDIU */}
           <div className="flex items-center space-x-2">

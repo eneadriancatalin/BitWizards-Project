@@ -1,9 +1,9 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "John Doe",
-      "email": "john@example.com"
+      "id": "09a6dc66-8c7c-11ee-b9d1-0242ac120002",
+      "nume": "Ene Adrian",
+      "taguri": ["test", "mate", "bio"]
     },
     {
       "id": 2,
@@ -14,10 +14,12 @@
   "tests": [
     {
       "id": "c08809d4-fe05-4bb7-b9de-c463618498b1",
+      "user": "09a6dc66-8c7c-11ee-b9d1-0242ac120002",
       "nume": "Test geografie",
-      "tag": "0",
-      "data": "1700949888",
+      "status": 0,
+      "data": 1700949888,
       "categorie": "test",
+      "taguri": [""],
       "descriere": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "avg": 42.9,
       "rezultate": 20,
@@ -29,17 +31,21 @@
         "intrebari": [
           {
             "titlu": "Titlul aici",
+            "tip": 0,
             "raspunsuri": ["intrebare 1", "intrebare 2"],
             "raspunsCorect": "a",
-            "puncte": 2,
-            "categorie": "numere rationale"
+            "punctRaspunsCorect": 2,
+            "punctRaspunsGresit": 0,
+            "tag": "numere rationale"
           },
           {
             "titlu": "Titlul aici 2",
+            "tip": 0,
             "raspunsuri": ["intrebare 3", "intrebare 4"],
             "raspunsCorect": "a",
-            "puncte": 2,
-            "categorie": "fractii"
+            "punctRaspunsCorect": 2,
+            "punctRaspunsGresit": 0,
+            "tag": "fractii"
           }
         ],
         "generari": {
@@ -64,10 +70,12 @@
     },
     {
       "id": "7c79dc27-bc33-4bbd-be75-3d55ae6c9e39",
+      "user": "09a6dc66-8c7c-11ee-b9d1-0242ac120002",
       "nume": "Test matematica geometrie",
-      "tag": "-1",
+      "status": "-1",
       "data": 1700478287,
       "categorie": "mate",
+      "taguri": ["triunghi", "patrat", "unghiuri"],
       "descriere": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "avg": 75.3,
       "rezultate": 2,
@@ -77,6 +85,26 @@
           "categorie": "mate",
           "descriere": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         },
+        "intrebari": [
+          {
+            "titlu": "Titlul aici",
+            "tip": 0,
+            "raspunsuri": ["intrebare 1", "intrebare 2"],
+            "raspunsCorect": "a",
+            "punctRaspunsCorect": 2,
+            "punctRaspunsGresit": 0,
+            "tag": "numere rationale"
+          },
+          {
+            "titlu": "Titlul aici 2",
+            "tip": 0,
+            "raspunsuri": ["intrebare 3", "intrebare 4"],
+            "raspunsCorect": "a",
+            "punctRaspunsCorect": 2,
+            "punctRaspunsGresit": 0,
+            "tag": "fractii"
+          }
+        ],
         "generari": {
           "tip": 1
         },
@@ -100,7 +128,7 @@
     {
       "id": "7d0678fc-a5c3-4b30-b91b-6193f148cc5a",
       "nume": "Test mate probabilitate",
-      "tag": "1",
+      "status": "1",
       "data": 1700478287,
       "descriere": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "avg": 20.1,
@@ -109,7 +137,7 @@
     {
       "id": "b190e14b-d0ac-4ea4-b24a-42d065499f43",
       "nume": "Test matematica analiza",
-      "tag": "1",
+      "status": "1",
       "data": 1700478287,
       "categorie": ["mate"],
       "descriere": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
@@ -119,7 +147,7 @@
     {
       "id": "063efae4-fd8e-47df-97d6-4ec7859abb82",
       "nume": "Test matematica algebra",
-      "tag": "-1",
+      "status": "-1",
       "data": 1700478287,
       "categorie": ["mate"],
       "descriere": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
@@ -127,7 +155,7 @@
     {
       "id": "063efae4-fd8e-47df-97d6-4ec7859abb83",
       "nume": "Test biologie",
-      "tag": "1",
+      "status": "1",
       "data": 1700478237,
       "categorie": ["bio", "test"],
       "descriere": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",

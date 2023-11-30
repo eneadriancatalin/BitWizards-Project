@@ -37,7 +37,7 @@ const Blocks = (props) => {
         <div className="flex justify-between items-center relative">
           {/* //! PARTEA DE DETALII CU STATUS SI CAND A FOST CREAT */}
           <div className="flex items-center space-x-5">
-            <Tags nume={props.tag} />
+            <Tags nume={props.status} />
             <p className="flex text-base items-center space-x-1 text-[#858788] tracking-tight">
               <HeroIcon
                 className="text-[#858788] h-5 aspect-square"
@@ -84,14 +84,14 @@ const Blocks = (props) => {
       <div
         className={
           "flex items-center " +
-          (props.tag === "-1" || props.tag === "1"
+          (props.status === "-1" || props.status === "1"
             ? "justify-between"
             : "justify-end")
         }
       >
         {/* //! COMPONENTA PENTRU STATISTICI */}
         <Statistics
-          tag={props.tag}
+          status={props.status}
           avg={props.avg}
           rezultate={props.rezultate}
         />

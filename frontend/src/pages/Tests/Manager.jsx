@@ -11,13 +11,14 @@ import HeroIcon from "../../components/global/HeroIcon";
 import data from "../../data.json";
 import Tags from "../../components/blocks/tests/Tags";
 import Setari from "./Settings/Setari";
-import Intrebari from "./Settings/Intrebari";
+import Intrebari from "./Settings/Intrebari/Intrebari";
 import Generari from "./Settings/Generari";
 import Acces from "./Settings/Acces";
 import Finala from "./Settings/Finala";
 import Timp from "./Settings/Timp";
 import { removeDiacritics } from "../../utils";
 import Info from "./Settings/Info";
+import Adauga from "./Settings/Intrebari/Adauga";
 const Manager = () => {
   let myArray = [];
   const { id } = useParams();
@@ -67,7 +68,7 @@ const Manager = () => {
     <div className="flex h-full">
       <div className="duration-300 space-y-6 transition-all h-screen flex border-r-2 tracking-tight border-[#F6F8FA] flex-none flex-col pt-6 bg-white ">
         <div className="space-y-3 px-5">
-          <Tags nume={testObject.tag} />
+          <Tags nume={testObject.status} />
           <p className="font-medium text-[#111315] text-2xl">
             {testObject.nume}
           </p>
@@ -94,12 +95,13 @@ const Manager = () => {
         </div>
       </div>
       {name === "informatii" && <Info object={testObject} />}
-      {name === "setari" && <Setari />}
+      {name === "setari" && <Setari object={testObject} />}
       {name === "intrebari" && <Intrebari />}
       {name === "generari" && <Generari />}
       {name === "acces" && <Acces />}
       {name === "pagina finala" && <Finala />}
       {name === "setari timp" && <Timp />}
+      {name === "adauga-intrebare" && <Adauga object={testObject} />}
     </div>
   );
 };

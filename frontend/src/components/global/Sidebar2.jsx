@@ -10,7 +10,7 @@ const Sidebar2 = () => {
   return (
     <header
       className={
-        "duration-300 transition-all space-y-10 h-screen flex border-r-2 tracking-tight justify-between border-[#F6F8FA] flex-none flex-col pt-6 bg-white " +
+        "duration-300 transition-all h-screen flex border-r-2 tracking-tight justify-between border-[#F6F8FA] flex-none flex-col pt-6 bg-white " +
         (navbar ? "w-[13%]" : "w-auto")
       }
     >

@@ -15,7 +15,7 @@ const Sidebar = (props) => {
   return (
     <div className="duration-300 transition-all space-y-7 h-screen flex border-r-2 tracking-tight border-[#ECECEC] flex-none flex-col px-5 min-w-[17rem] pt-6 bg-[#F8F8F8] ">
       <div className="space-y-2">
-        <Tags nume={props.object.tag} />
+        <Tags nume={props.object.status} />
         <p className="font-medium text-2xl">{props.object.nume}</p>
       </div>
       <div className="">

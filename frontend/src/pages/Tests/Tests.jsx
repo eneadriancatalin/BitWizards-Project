@@ -22,7 +22,7 @@ const Tests = () => {
             <Link to={`${test.id}/informatii`} exact>
               <Blocks
                 nume={test.nume}
-                tag={test.tag ? test.tag : "0"}
+                status={test.status ? test.status : "0"}
                 data={timeConvert(test.data)}
                 categorie={test.categorie}
                 descriere={test.descriere}
