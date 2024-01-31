@@ -1,5 +1,5 @@
 import React from "react";
-import Subtitle from "../../../components/global/blocks/Subtitle";
+import Title from "../../../components/global/blocks/Title";
 import HeroIcon from "../../../components/global/HeroIcon";
 import Block from "../../../components/global/Block";
 import data from "../../../data.json";
@@ -9,9 +9,9 @@ const Setari = (props) => {
     return userFind;
   };
   return (
-    <div className="p-6 w-full h-full bg-[#F1F3F5]">
+    <div className="p-6 w-full h-full dots">
       <div className="mb-10">
-        <Subtitle titlu="Setari" />
+        <Title titlu="Setari" />
       </div>
       <div className="space-y-8">
         <Block titlu="Setari initiale" important={true}>
@@ -49,7 +49,7 @@ const Setari = (props) => {
                   id="fruitSelect"
                   name="fruit"
                 >
-                  {user(props.object.user).taguri.map((tag) => (
+                  {user(props.object.user)?.taguri.map((tag) => (
                     <option>{tag}</option>
                   ))}
                 </select>
