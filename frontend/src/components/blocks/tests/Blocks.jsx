@@ -32,21 +32,19 @@ const Blocks = (props) => {
   }, []);
 
   return (
-    <div className="p-6 bg-white ring-2 ring-[#F1F3F5] min-h-max flex space-y-5 flex-col justify-between rounded-lg cursor-pointer">
+    <div className="p-8 bg-white ring-2 ring-[#F1F3F5] shadow-[0_4px_16px_0px_rgba(29, 29, 27, .08)] min-h-max flex space-y-5 flex-col justify-between rounded-2xl cursor-pointer">
       <div className="space-y-5">
         <div className="flex justify-between items-center relative">
           {/* //! PARTEA DE DETALII CU STATUS SI CAND A FOST CREAT */}
           <div className="flex items-center space-x-5">
             <Tags nume={props.status} />
-            <p className="flex text-base items-center space-x-1 text-[#858788] tracking-tight">
+            <p className="flex uppercase font-semibold text-sm items-center space-x-1 text-[#515355] tracking-tight">
               <HeroIcon
-                className="text-[#858788] h-5 aspect-square"
+                className="text-[#1D1D1B] h-5 aspect-square"
                 icon="calendar-days"
                 outline={false}
               />
-              <p>
-                Creat: <span className="text-[#111315]">{props.data}</span>
-              </p>
+              <p>Creat: {props.data}</p>
             </p>
           </div>
           {/* //! BUTONUL DE OPTIUNI PENTRU COPIERE/STERGERE */}
@@ -72,12 +70,14 @@ const Blocks = (props) => {
             </ul>
           </details>
         </div>
-        {/* //! NUMELE TESTULUI */}
-        <p className="text-[#111315] text-3xl">{props.nume}</p>
-        {/* //! DESCRIEREA TESTULUI */}
-        <p className="line-clamp-2 text-lg leading-6 text-[#858788]">
-          {props.descriere ? props.descriere : "(fara descriere)"}
-        </p>
+        <div className="space-y-3">
+          {/* //! NUMELE TESTULUI */}
+          <p className="text-[#1d1d1b] text-3xl font-semibold">{props.nume}</p>
+          {/* //! DESCRIEREA TESTULUI */}
+          <p className="line-clamp-2 text-lg leading-6 text-[#515355]">
+            {props.descriere ? props.descriere : "(fara descriere)"}
+          </p>
+        </div>
       </div>
       {/* //! STATISTICILE SI TAGURI */}
       <div className="w-full bg-[#EEF0F2] h-px"></div>
