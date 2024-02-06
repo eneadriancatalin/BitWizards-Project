@@ -6,11 +6,11 @@ const Sign = (nume) => {
   const [mesaj, setMesaj] = useState("");
 
   const auth = (email, parola) => {
-    if (email === "moraru@eneadrian.com" && parola === "test123") {
+    if (email === "moraru@bitwizard.site" && parola === "test123") {
       setMesaj("Autentificat cu succes!");
       localStorage.setItem("nume", "Moraru Sorin");
       window.location.reload(false);
-    } else if (email === "ene@eneadrian.com" && parola === "test123") {
+    } else if (email === "test@bitwizard.site" && parola === "test123") {
       setMesaj("Autentificat cu succes!");
       localStorage.setItem("nume", "Ene Adrian");
       window.location.reload(false);
