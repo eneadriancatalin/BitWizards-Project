@@ -63,6 +63,7 @@ const Manager = () => {
     a[0],
     testObject.categorie ? testObject.categorie : "Necatalogat"
   );
+  console.log(testObject);
 
   return (
     <div className="flex h-full">
@@ -96,7 +97,7 @@ const Manager = () => {
       </div>
       {name === "informatii" && <Info object={testObject} />}
       {name === "setari" && <Setari object={testObject} />}
-      {name === "intrebari" && <Intrebari />}
+      {name === "intrebari" && <Intrebari object={testObject} />}
       {name === "generari" && <Generari />}
       {name === "acces" && <Acces />}
       {name === "pagina finala" && <Finala />}
@@ -122,7 +123,6 @@ const Settings = (props) => {
         <div className="top-0 left-0 h-full absolute w-[3px] bg-blue-600"></div>
       )}
       <li className="group hover:cursor-pointer py-4 relative flex space-x-3">
-        {/* Use the icon variable as the value for the icon prop */}
         <div className="min-w-[1.3rem]">
           <HeroIcon
             icon={props.icon}

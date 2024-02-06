@@ -16,26 +16,27 @@ const Tags = (props) => {
   {
     /*//! ALTCEVA - NUMELE CUSTOM AM TAGULUI */
   }
+
   return (
     <div
       className={
-        "capitalize tracking-tight  text-[#111315] font-semibold px-3 py-1 max-w-max rounded-md " +
-        (props.nume === "0"
-          ? "bg-[#D0C8F0]"
-          : props.nume === "1"
-            ? "bg-[#D7E5C1]"
-            : props.nume === "-1"
-              ? "bg-[#DEC7BB]"
-              : "bg-[#C3DBE9]")
+        "uppercase text-[#1D1D1B] font-bold text-sm px-3 py-1 max-w-max rounded-md tracking-normal " +
+        (props.nume.toString() === "0"
+          ? "bg-[#9794F7]"
+          : props.nume.toString() === "1"
+            ? "bg-[#A1E0DE]"
+            : props.nume.toString() === "-1"
+              ? "bg-[#F7CE78]"
+              : "bg-[#F4F5F7] ring-1 ring-[#DEDFDF]")
       }
     >
-      {props.nume === "0"
+      {props.nume.toString() === "0"
         ? "configurare în curs"
-        : props.nume === "1"
+        : props.nume.toString() === "1"
           ? "activ"
-          : props.nume === "-1"
+          : props.nume.toString() === "-1"
             ? "terminat"
-            : props.nume}
+            : props.nume.toString()}
     </div>
   );
 };

@@ -1,9 +1,12 @@
 import React from "react";
 import Title from "../components/global/blocks/Title";
 import Breadcrumbs from "../components/global/Breadcrumbs";
+import Tags from "../components/blocks/tests/Tags";
+import data from "../data.json";
 const Home = () => {
+  const nume = localStorage.getItem("nume");
   return (
-    <div className="px-10 py-6 bg-[#F1F3F5] h-full">
+    <div className="px-10 py-6 bg-[#F1F3F5] dots h-full">
       {/* //! CALEA CATRE PAGINA */}
       <Breadcrumbs loc={["a", "b", "c"]} />
       <div className="space-y-10">
@@ -71,10 +74,25 @@ const Home = () => {
             }
           />
         </div>
-        >>>>>>> Stashed changes
       </div>
     </div>
   );
 };
 
 export default Home;
+
+const Block = (props) => {
+  return (
+    <div className="p-8 bg-white ring-2 ring-[#F1F3F5] shadow-[0_4px_16px_0px_rgba(29, 29, 27, .08)] min-h-max flex space-y-5 flex-col justify-between rounded-2xl cursor-pointer">
+      <div className="space-y-5">
+        <div className="flex justify-between items-center relative">
+          <div className="flex items-center space-x-5">{props.tag}</div>
+        </div>
+        <div className="space-y-3">
+          {/* //! NUMELE TESTULUI */}
+          <p className="text-[#1d1d1b] text-5xl font-semibold">{props.numar}</p>
+        </div>
+      </div>
+    </div>
+  );
+};

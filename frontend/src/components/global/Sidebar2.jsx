@@ -5,13 +5,16 @@ import { ReactComponent as LogoV } from "../../assets/logo2.svg";
 import HeroIcon from "./HeroIcon";
 import { lightenColor } from "../../utils";
 
-const Sidebar2 = () => {
+const Sidebar2 = (nume) => {
   const [navbar, setNavbar] = useState(true);
+  const auth = () => {
+    localStorage.setItem("nume", "");
+    window.location.reload(false);
+  };
   return (
     <header
       className={
-        "duration-300 transition-all h-screen flex border-r-2 tracking-tight justify-between border-[#F6F8FA] flex-none flex-col pt-6 bg-white " +
-        (navbar ? "w-[13%]" : "w-auto")
+        "duration-300 transition-all h-screen flex border-r-2 tracking-tight justify-between border-[#F6F8FA] flex-none flex-col pt-6 bg-white w-[13%]"
       }
     >
       {/* //! LOGOURI */}
@@ -21,14 +24,7 @@ const Sidebar2 = () => {
           <NavLink exact="true" to="/">
             <Logo
               className={
-                "hover:cursor-pointer duration-300 h-[2rem] transition-all " +
-                (navbar ? " block opacity-100" : " hidden opacity-0")
-              }
-            />
-            <LogoV
-              className={
-                "hover:cursor-pointer h-[2rem] duration-300 transition-all " +
-                (navbar ? " hidden opacity-0" : "block opacity-100")
+                "hover:cursor-pointer duration-300 h-[2rem] transition-all block opacity-100"
               }
             />
           </NavLink>
@@ -129,15 +125,35 @@ const Sidebar2 = () => {
       </div>
 
       {/* //! BUTON JOS */}
-      <div onClick={() => setNavbar(!navbar)} className="mb-3">
-        <Category nume="Reports" name_disabled="true" nav={navbar}>
-          <Subcategory
-            nav={navbar}
-            nume="ascunde"
-            icon="arrow-left-circle"
-            hideIcon="true"
-          />
-        </Category>
+      <div onClick={() => auth()} className="mb-3">
+        <div>
+          <div className="w-full h-px bg-[#EEF0F2]"></div>
+          <div className="space-y-4">
+            <p className="text-sm font-medium text-[#B4B5B9] hover:cursor-default">
+              <div className={"w-full px-8 flex relative"}>
+                <li className="group hover:cursor-pointer py-4 relative flex space-x-3">
+                  {/* Use the icon variable as the value for the icon prop */}
+                  <div className="min-w-[1.3rem]">
+                    <HeroIcon
+                      icon="arrow-left-circle"
+                      outline={false}
+                      className={
+                        " h-6 aspect-square group-hover:text-[#111315] rotate-0text-[#111315]"
+                      }
+                    />
+                  </div>
+                  <p
+                    className={
+                      "capitalize w-full overflow-auto group-hover:text-[#111315] group-hover:font-semibold text-[#111315] font-semibold"
+                    }
+                  >
+                    {nume.nume}
+                  </p>
+                </li>
+              </div>
+            </p>
+          </div>
+        </div>
       </div>
     </header>
   );

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import Sidebar from "./components/global/Sidebar";
@@ -16,62 +17,85 @@ import Rapoarte from "./pages/Rapoarte";
 import Istoric from "./pages/Istoric";
 import Clase from "./pages/Clase";
 import Individuale from "./pages/Individuale";
+import Sign from "./pages/Sign";
 function App() {
+  let nume;
+  nume = localStorage.getItem("nume");
+  console.log("loaded", nume);
   return (
     <div className="App flex h-screen w-screen font-questial bg-white">
       <Router>
         {/* //! SIDEBARUL PAGINII */}
-        <Sidebar2 />
+        {nume && <Sidebar2 nume={nume} />}
         <div className="flex flex-col  w-full">
-          {/* //! BARA DE NAVIGATII */}
-          {/* <Navbar /> */}
-          {/* //! ROUTURILE PAGINILOR */}
-          <Routes>
-            <Route key="home" exact path="/" element={<Home />} />
-            <Route
-              key="studenti"
-              exact
-              path="/studenti"
-              element={<Studenti />}
-            />
-            <Route key="creaza" exact path="/creaza" element={<Creaza />} />
-            <Route
-              key="sabloane"
-              exact
-              path="/sabloane"
-              element={<Sabloane />}
-            />
-            <Route key="tests" exact path="/manager" element={<Tests />} />
-            <Route
-              key="testsa"
-              exact
-              path="/manager/:id/:name?"
-              element={<Manager />}
-            />
-            <Route key="analiza" exact path="/analiza" element={<Analiza />} />
-            <Route
-              key="performanete"
-              exact
-              path="/performante"
-              element={<Performante />}
-            />
-            <Route key="scoruri" exact path="/scroruri" element={<Scoruri />} />
-            <Route key="istoric" exact path="/istoric" element={<Istoric />} />
-            <Route
-              key="rapoarte"
-              exact
-              path="/rapoarte"
-              element={<Rapoarte />}
-            />
-            <Route key="clase" exact path="/clase" element={<Clase />} />
-            <Route
-              key="individuale"
-              exact
-              path="/individuale"
-              element={<Individuale />}
-            />
-            <Route key="undefined" path="*" element={<Home />} />
-          </Routes>
+          {!nume && (
+            <Routes>
+              <Route path="*" element={<Sign nume={nume} />} />
+            </Routes>
+          )}
+          {nume && (
+            <Routes>
+              <Route key="home" exact path="/" element={<Home nume={nume} />} />
+              <Route
+                key="studenti"
+                exact
+                path="/studenti"
+                element={<Studenti />}
+              />
+              <Route key="creaza" exact path="/creaza" element={<Creaza />} />
+              <Route
+                key="sabloane"
+                exact
+                path="/sabloane"
+                element={<Sabloane />}
+              />
+              <Route key="tests" exact path="/manager" element={<Tests />} />
+              <Route
+                key="testsa"
+                exact
+                path="/manager/:id/:name?"
+                element={<Manager />}
+              />
+              <Route
+                key="analiza"
+                exact
+                path="/analiza"
+                element={<Analiza />}
+              />
+              <Route
+                key="performanete"
+                exact
+                path="/performante"
+                element={<Performante />}
+              />
+              <Route
+                key="scoruri"
+                exact
+                path="/scroruri"
+                element={<Scoruri />}
+              />
+              <Route
+                key="istoric"
+                exact
+                path="/istoric"
+                element={<Istoric />}
+              />
+              <Route
+                key="rapoarte"
+                exact
+                path="/rapoarte"
+                element={<Rapoarte />}
+              />
+              <Route key="clase" exact path="/clase" element={<Clase />} />
+              <Route
+                key="individuale"
+                exact
+                path="/individuale"
+                element={<Individuale />}
+              />
+              <Route key="undefined" path="*" element={<Home />} />
+            </Routes>
+          )}
         </div>
       </Router>
     </div>
