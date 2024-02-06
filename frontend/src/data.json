@@ -41,13 +41,13 @@
             "titlu": "Rezolvați ecuația: 2x + 3 = 7",
             "tip": 0,
             "raspunsuri": ["x = 2", "x = 3", "x = 4", "x = 5"],
-            "raspunsCorect": 3,
+            "raspunsCorect": 1,
             "tag": "Algebra"
           },
           {
             "titlu": "Ce este tangenta unghiului de 30 de grade?",
             "tip": 0,
-            "raspunsuri": ["0.5", "1", "√3/2", "√2/2"],
+            "raspunsuri": ["√3/3", "1", "√3/2", "√2/2"],
             "raspunsCorect": 1,
             "tag": "Trigonometrie"
           },
